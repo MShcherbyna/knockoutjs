@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<p>First name: <span data-bind="text: firstName"></span></p>
+	<p>Last name: <span data-bind="text: lastName" ></span></p>
+
+	<p><input type="text" data-bind="value: firstName"></p>
+	<p><input type="text" data-bind="value: lastName"></p>
+
+  	<script src="lib/knockout-3.4.2.js"></script>
+  	<script src="main.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

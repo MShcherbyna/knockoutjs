@@ -1,0 +1,18 @@
+.row.container {
+	width: 1024px;
+	margin: 0 auto;
+	padding-top: 50px
+}
+.form-group {
+	padding: 0 20px;
+}
+.btn.clear {
+	width: 100%;
+}
+.users-list {
+	list-style-type:none;
+	padding-left: 20px;
+}
+div.radio {
+	padding: 10px 0;
+}
