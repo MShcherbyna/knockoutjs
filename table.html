@@ -29,38 +29,42 @@
 							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Age" data-bind="value:age">
 						</div>
 						<div class="col-md-6">
-							<div class="form-group">
+							<div>
 							  <label for="sel1">Gender:</label>
-							  <select class="form-control" id="sel1">
-							    <option>Man</option>
-							    <option>Women</option>
+							  <select class="form-control" id="sel1" data-bind="options: sexOptions,
+							  optionsCaption:'select',
+							  value: sex,
+							  valueAllowUnset:true">
+							    
 							  </select>
 							</div>
 						</div>
 					</div>
 					<div class="checkbox">
 					    <label>
-					      <input type="checkbox"> Admin access
+					      <input type="checkbox" data-bind="checked: isAdmin"> Admin access
 					    </label>
 				  	</div>
-				  	<div class="radio">
-					  <label>
-					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-					    Posts admin
-					  </label>
-					</div>
-					<div class="radio">
-					  <label>
-					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-					    Category admin
-					  </label>
-					</div>
-					<div class="radio">
-					  <label>
-					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-					    Super admin
-					  </label>
-					</div>
+				  	<div data-bind="visible:isAdmin">
+					  	<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" data-bind="checked:adminName" value="Posts admin">
+						    Posts admin
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" data-bind="checked:adminName" value="Category admin">
+						    Category admin
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" data-bind="checked:adminName" value="Super admin">
+						    Super admin
+						  </label>
+						</div>
+				  	</div>
 					<button type="submit" class="btn btn-default">Save</button>
 				</div>
 			</form>
@@ -68,12 +72,12 @@
 		<div class="col-md-4">
 			<h1>New users</h1>
 			<ul class="users-list">
-				<li data-bind="text:fullName">Max</li>
-				<li data-bind="text:age">24</li>
-				<li>man</li>
-				<li>super admin</li>
+				<li data-bind="text:fullName"></li>
+				<li data-bind="text:age"></li>
+				<li data-bind="text:sex"></li>
+				<li data-bind="visible:isAdmin">Admin(<span data-bind="text:adminName"></span>)</li>
 			</ul>
-			<button type="button" class="btn btn-default btn-sm clear">Clear users</button>
+			<button type="button" class="btn btn-default btn-sm clear" data-bind="visible:notEmpty">Clear users</button>
 		</div>
 	</div>
 
