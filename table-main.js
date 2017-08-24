@@ -8,7 +8,8 @@ var ViewModel = function(first, last) {
     this.adminName = ko.observable("");
     this.sexOptions = ['male','famale'];
     this.users = [];
-    
+    this.count = ko.observable(0);
+    this.allUsers = ko.observable();
     this.fullName = ko.computed(function(){
     	return this.firstName() + " " + this.lastName();
     },this);
@@ -28,14 +29,17 @@ var ViewModel = function(first, last) {
         event.preventDefault();
         if(this.notEmpty) {
             var userInfo = {};
-            userInfo['fullname'] = this.fullName();
+            userInfo['id'] = this.count();
+            userInfo['fullName'] = this.fullName();
             userInfo['age'] = this.age();
             userInfo['sex'] = this.sex();
             userInfo['isAdmin'] = this.isAdmin() ? this.adminName() : 'Not admin';
+            this.count(this.count()+1);
 
             this.users.push(userInfo);
-
+            this.allUsers(this.users);
             console.log(this.users);
+            console.log(this.allUsers());
             this.reset();
         }
     }

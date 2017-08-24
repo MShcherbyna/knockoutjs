@@ -69,7 +69,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4" >
 			<h1>New users</h1>
 			<ul class="users-list">
 				<li data-bind="text:fullName"></li>
@@ -80,7 +80,29 @@
 			<button type="button" class="btn btn-default btn-sm clear" data-bind="visible:notEmpty, click:reset">Clear users</button>
 		</div>
 	</div>
-
+	<div class="row container">
+		<div class="col-md-8">
+			<table class="table" data-bind="visible:count"> 
+				<caption><h1>All users</h1></caption> 
+				<tr>
+					<th>#</th>
+					<th>Full Name</th>
+					<th>Age</th>
+					<th>Sex</th>
+					<th>Is Admin</th>
+				</tr>
+				<tbody data-bind="foreach: allUsers">
+					<tr>
+						<td data-bind="text:id"></td>
+						<td data-bind="text:fullName"></td>
+						<td data-bind="text:age"></td>
+						<td data-bind="text:sex"></td>
+						<td data-bind="text:isAdmin"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+	</div>
   	<script src="lib/knockout-3.4.2.js"></script>
   	<script src="table-main.js"></script>
   	<script src="js/bootstrap.min.js"></script>
