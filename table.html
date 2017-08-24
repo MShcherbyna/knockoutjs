@@ -13,7 +13,7 @@
 	<div class="row container">
 		<div class="col-md-8">
 			<h1>Create new user</h1>
-			<form>
+			<form data-bind="submit: save">
 				<div class="form-group">
 					<label for="exampleInputEmail1">Name</label>
 					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" data-bind="value:firstName">
@@ -77,7 +77,7 @@
 				<li data-bind="text:sex"></li>
 				<li data-bind="visible:isAdmin">Admin(<span data-bind="text:adminName"></span>)</li>
 			</ul>
-			<button type="button" class="btn btn-default btn-sm clear" data-bind="visible:notEmpty">Clear users</button>
+			<button type="button" class="btn btn-default btn-sm clear" data-bind="visible:notEmpty, click:reset">Clear users</button>
 		</div>
 	</div>
 
